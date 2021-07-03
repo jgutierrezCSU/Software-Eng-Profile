@@ -74,3 +74,15 @@ td {
   }
   
 /* END navigation*/
+
+/* for Header*/
+.header {
+    padding: 25px;
+    padding-top: -5px;
+    text-align: left;
+    background: #050812;
+    color: white;
+    font-size: 30px;
+    
+  }
+  /* END Header*/
