@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width ,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
-    {% block head %} {% endblock %}
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Big+Shoulders+Stencil+Display:wght@300&family=Great+Vibes&family=Orbitron&family=Permanent+Marker&display=swap" rel="stylesheet">
 
-
+    
 </head>
 <body>
+    <!-- For top navigation-->
+    <div class="topnav">
+        <b class="active" href="#home">Jesus Gutierrez</b>
+        <a href="#welcome">Welcome</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
+       <!-- END top navigation-->
+
     {% block body %} {% endblock %}
 
 </body>
+
 </html>

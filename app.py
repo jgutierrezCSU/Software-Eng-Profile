@@ -13,7 +13,7 @@ class Todo(db.Model):
     # creates ID for each entry
     id= db.Column(db.Integer,primary_key=True)
     content= db.Column(db.String(150),nullable=False)
-    #completed= db.Column(db.Integer)
+
     # set time automatically
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
