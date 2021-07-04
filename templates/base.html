@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
   <link href="../static/css/cpbutton.css" rel="stylesheet">
   <link href="../static/css/modal.css" rel="stylesheet">
+  <link href="../static/css/compentenciesform.css" rel="stylesheet">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -55,7 +57,39 @@
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
+      <!--  FORM-->
+
+      <div class="wrap-title100 p-l-60 p-r-60 p-t-80 p-b-30">
+        <form class="title100-form validate-form">
+          
+          <div class="wrap-title validate-input m-b-20" data-validate="Title">
+            <input class="input100" type="text" name="title" placeholder="Title">
+            <span class="focus-input100"></span>
+          </div>
+
+          <h1>Enter Summary: </h1>
+          <div class="wrap-content validate-input m-b-25" >
+            <textarea class="textarea-content" rows="16" cols="90"> </textarea>
+           
+          </div>
+          
+          <div class="container-submit-form-btn">
+            <button class="submit-form-btn">
+              Submit
+            </button>
+          </div>
+
+          <div class="container-submit-form-btn">
+            <button class="cancel-form-btn">
+              Cancel
+            </button>
+          </div>
+
+
+
+      </div>
+      <!-- END FORM -->
+
     </div>
 
   </div>
