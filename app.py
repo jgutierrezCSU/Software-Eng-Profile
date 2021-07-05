@@ -13,32 +13,39 @@ class Todo(db.Model): # Todo name of DB
     # creates ID for each entry
     id= db.Column(db.Integer,primary_key=True)
     content= db.Column(db.String(150),nullable=False)
-
+    summary= db.Column(db.String(200))
     # set time automatically
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return '<Task %r>' % self.id
         
-# Maun entry point
+# Main entry point
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method =='POST':
-        #request is equal to "content" from index.html input tag
-        task_content = request.form.get("sumText")
-        new_task = Todo(content=task_content)
+        #request is equal to "name=compt_summary" from index.html name tag
+        compt_summary = request.form["compt_summary"]
+        #request is equal to "content_title" from index.html input tag
+        compt_title = request.form["compt_title"]
+        # All data added to DB needs to be in a single call, like so:
+        new_post_title_summary = Todo(content=compt_title,summary=compt_summary)
+        
+        
 
         try:
-            db.session.add(new_task)
+           
+            db.session.add(new_post_title_summary)
             db.session.commit()
             return redirect('/')
 
-        except:
-            return "Issue updating your list"
+        except :
+            return "Issue updating your list" 
+           
     else:
         # sort DB by order created and return items
-        tasks= Todo.query.order_by(Todo.date_created).all()
-        return render_template('index.html', tasks=tasks)
+        all_post= Todo.query.order_by(Todo.date_created).all()
+        return render_template('index.html', all_post=all_post)
     
 @app.route('/delete/<int:id>')
 def delete(id):

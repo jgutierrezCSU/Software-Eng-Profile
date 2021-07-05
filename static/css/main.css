@@ -87,3 +87,10 @@ td {
     
   }
   /* END Header*/
+
+  .noPost {
+    text-align: center;
+    line-height: 5em;
+    font-family: Cyber;
+    font-size: 20px;
+  }

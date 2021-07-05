@@ -305,6 +305,16 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
+  justify-content: right;
+}
+.container-cancel-form-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  position: relative;
+  right: 160px;
   justify-content: center;
 }
 
@@ -318,7 +328,7 @@ iframe {
   align-items: center;
   padding: 0 20px;
   min-width: 160px;
-  height: 50px;
+  height: 35px;
   background-color: #bd59d4;
   border-radius: 25px;
 
@@ -350,9 +360,10 @@ iframe {
   align-items: center;
   padding: 0 20px;
   min-width: 160px;
-  height: 50px;
+  height: 35px;
   background-color: #bd59d4;
   border-radius: 25px;
+
 
   font-family: SourceSansPro-SemiBold;
   font-size: 14px;

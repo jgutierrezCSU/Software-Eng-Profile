@@ -5,24 +5,21 @@
 
 {% block body %}
 <div class="content">
-    <h1 style="text-align: center">Task List</h1>
-    {% if tasks|length < 1 %}
-    <h4 style="text-align: center">There are no tasks. Create one below!</h4>
+  
+    {% if all_post|length < 1 %}
+    <h4  class="noPost" >There are NO Post. Add your Skills!</h4>
     {% else %}
     <table>
         <tr>
-            <th>Task</th>
-            <th>Added</th>
-            <th>Actions</th>
-        </tr>
-        {% for task in tasks %}
+            <th>Title</th>
+        {% for item in all_post %}
             <tr>
-                <td>{{ task.content }}</td>
-                <td>{{ task.date_created.date() }}</td>
+                <td>{{ item.content }}</td>
+                <td>{{ item.date_created.date() }}</td>
                 <td>
-                    <a href="/delete/{{task.id}}">Delete</a>
+                    <a href="/delete/{{item.id}}">Delete</a>
                     <br>
-                    <a href="/update/{{task.id}}">Update</a>
+                    <a href="/update/{{item.id}}">Update</a>
                 </td>
             </tr>
         {% endfor %}
@@ -39,30 +36,31 @@
 
 {% block form %}
 <div class="wrap-title100 p-l-60 p-r-60 p-t-80 p-b-30">
-    <form class="title100-form validate-form">
+    <form action="/" method="POST" class="title100-form validate-form">
       
       <div class="wrap-title validate-input m-b-20" data-validate="Title">
-        <input class="input100" type="text" name="title" placeholder="Title">
+        <input class="input100" type="text"  id="compt_title" name="compt_title" placeholder="Title">
         <span class="focus-input100"></span>
       </div>
 
       <h1>Enter Summary: </h1>
       <div  class="wrap-content validate-input m-b-25" >
-        <textarea action="/" method="POST" type="text" 
-        name="content" id="content" class="textarea-content" rows="16" cols="90"> </textarea>
-       
+        <textarea  type="text" 
+        name="compt_summary" id="compt_summary" class="textarea-content" rows="16" cols="90"> </textarea>
       </div>
       
       <div class="container-submit-form-btn">
         <button  type="submit" value="Add Task" class="submit-form-btn">
           Submit
         </button>
-      </div>
 
         <button class="cancel-form-btn">
           Cancel
         </button>
       </div>
-    </form>
+    
+      </form>
+      
+  
   </div>
   {% endblock %}
