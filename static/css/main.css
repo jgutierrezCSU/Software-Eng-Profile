@@ -89,8 +89,17 @@ td {
   /* END Header*/
 
   .noPost {
-    text-align: center;
+    text-align: left;
     line-height: 5em;
     font-family: Cyber;
     font-size: 20px;
+  }
+
+  .summary_post {
+    text-align:center;
+    border: 1px solid orange;
+    padding: 25px;
+    padding-top: -5px;
+    min-width:400px;
+    
   }

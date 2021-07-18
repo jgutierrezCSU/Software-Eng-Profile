@@ -1,30 +1,79 @@
-
 {% extends 'base.html' %}
 
 
 
 {% block body %}
 <div class="content">
-  
-    {% if all_post|length < 1 %}
-    <h4  class="noPost" >There are NO Post. Add your Skills!</h4>
+  {% if all_post|length < 1 %} <h4 class="noPost">There are NO Post. Add your Skills!</h4>
     {% else %}
-    <table>
-        <tr>
-            <th>Title</th>
+    <!-- <table>
+      <tr>
+
         {% for item in all_post %}
-            <tr>
-                <td>{{ item.content }}</td>
-                <td>{{ item.date_created.date() }}</td>
-                <td>
-                    <a href="/delete/{{item.id}}">Delete</a>
-                    <br>
-                    <a href="/update/{{item.id}}">Update</a>
-                </td>
-            </tr>
-        {% endfor %}
+      <tr>
+        <td>{{ item.content }}</td>
+      </tr>
+      <tr>
+        <td>{{ item.summary }}</td>
+      </tr>
+      <tr>
+        <td>{{ item.date_created.date() }}
+          <br>
+          <a href="/delete/{{item.id}}">Delete</a>
+          <br>
+          <a href="/update/{{item.id}}">Update</a>
+        </td>
+      </tr>
+
+      {% endfor %}
+      </tr>
+    </table> -->
+    <table  >
+      <div>
+  
+    
+        <tr >
+    {% for item in all_post %}
+   
+         {{ loop.index }}
+         {% if loop.index < 3 %}       
+        <td class="summary_post" >
+          
+          <p>{{ item.content }}</p>
+          <p>{{ item.summary }}</p>
+          <p>{{ item.date_created.date() }}</p>
+          <br>
+          <a href="/delete/{{item.id}}">Delete</a>
+          <br>
+          <a href="/update/{{item.id}}">Update</a>
+        </td>
+        {% endif %}
+        {% if loop.index > 3 %}
+        <table  >
+          <div>
+      
+        
+            <tr >
+        <td class="summary_post" >
+          
+          <p>{{ item.content }}</p>
+          <p>{{ item.summary }}</p>
+          <p>{{ item.date_created.date() }}</p>
+          <br>
+          <a href="/delete/{{item.id}}">Delete</a>
+          <br>
+          <a href="/update/{{item.id}}">Update</a>
+        </td>
+      </tr>
+    </div>
     </table>
+        {% endif %}
+
+    {% endfor %}
     {% endif %}
+  </tr>
+  </div>
+  </table>
     <!-- <div class="form">
         <form action="/" method="POST">
             <input type="text" name="content" id="content">
@@ -36,31 +85,31 @@
 
 {% block form %}
 <div class="wrap-title100 p-l-60 p-r-60 p-t-80 p-b-30">
-    <form action="/" method="POST" class="title100-form validate-form">
-      
-      <div class="wrap-title validate-input m-b-20" data-validate="Title">
-        <input class="input100" type="text"  id="compt_title" name="compt_title" placeholder="Title">
-        <span class="focus-input100"></span>
-      </div>
+  <form action="/" method="POST" class="title100-form validate-form">
 
-      <h1>Enter Summary: </h1>
-      <div  class="wrap-content validate-input m-b-25" >
-        <textarea  type="text" 
-        name="compt_summary" id="compt_summary" class="textarea-content" rows="16" cols="90"> </textarea>
-      </div>
-      
-      <div class="container-submit-form-btn">
-        <button  type="submit" value="Add Task" class="submit-form-btn">
-          Submit
-        </button>
+    <div class="wrap-title validate-input m-b-20" data-validate="Title">
+      <input class="input100" type="text" id="compt_title" name="compt_title" placeholder="Title">
+      <span class="focus-input100"></span>
+    </div>
 
-        <button class="cancel-form-btn">
-          Cancel
-        </button>
-      </div>
-    
-      </form>
-      
-  
-  </div>
-  {% endblock %}
+    <h1>Enter Summary: </h1>
+    <div class="wrap-content validate-input m-b-25">
+      <textarea type="text" name="compt_summary" id="compt_summary" class="textarea-content" rows="16"
+        cols="90"> </textarea>
+    </div>
+
+    <div class="container-submit-form-btn">
+      <button type="submit" value="Add Task" class="submit-form-btn">
+        Submit
+      </button>
+
+      <button class="cancel-form-btn">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+
+
+</div>
+{% endblock %}
