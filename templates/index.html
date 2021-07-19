@@ -3,7 +3,7 @@
 
 
 {% block body %}
-<div class="content">
+<div style="padding: 35px">
   {% if all_post|length < 1 %} <h4 class="noPost">There are NO Post. Add your Skills!</h4>
     {% else %}
     <!-- <table>
@@ -28,17 +28,14 @@
       {% endfor %}
       </tr>
     </table> -->
-    <table  >
-      <div>
-  
-    
-        <tr >
-    {% for item in all_post %}
-   
-         {{ loop.index }}
-         {% if loop.index < 3 %}       
-        <td class="summary_post" >
-          
+
+    <table class="summary_table">
+      <!-- Remove table borders-->
+      <tr>
+
+        {% for item in all_post %}
+        {% if loop.index <= 3 %} <td class="summary_post">
+
           <p>{{ item.content }}</p>
           <p>{{ item.summary }}</p>
           <p>{{ item.date_created.date() }}</p>
@@ -46,16 +43,20 @@
           <a href="/delete/{{item.id}}">Delete</a>
           <br>
           <a href="/update/{{item.id}}">Update</a>
-        </td>
+          </td>
+
+          {% endif %}
+
+
+          {% if loop.index == 3 %}
+      </tr>
+    </table>
+    <table class="summary_table">
+      <tr>
         {% endif %}
         {% if loop.index > 3 %}
-        <table  >
-          <div>
-      
-        
-            <tr >
-        <td class="summary_post" >
-          
+        <td class="summary_post">
+
           <p>{{ item.content }}</p>
           <p>{{ item.summary }}</p>
           <p>{{ item.date_created.date() }}</p>
@@ -64,23 +65,27 @@
           <br>
           <a href="/update/{{item.id}}">Update</a>
         </td>
-      </tr>
-    </div>
-    </table>
+
+
+
         {% endif %}
 
-    {% endfor %}
+
+        {% endfor %}
+      </tr>
+    </table>
+
     {% endif %}
-  </tr>
-  </div>
-  </table>
-    <!-- <div class="form">
+
+
+</div>
+<!-- <div class="form">
         <form action="/" method="POST">
             <input type="text" name="content" id="content">
             <input type="submit" value="Add Task">
         </form>
     </div> -->
-</div>
+
 {% endblock %}
 
 {% block form %}

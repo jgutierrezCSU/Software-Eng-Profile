@@ -32,9 +32,7 @@ td {
     margin-top: 20px;
 }
 
-#content {
-    width: 70%;
-}
+
 #PageTitle {
     border-radius: 38px;
     background: #e0e0e0;
@@ -97,9 +95,13 @@ td {
 
   .summary_post {
     text-align:center;
-    border: 1px solid orange;
     padding: 25px;
     padding-top: -5px;
     min-width:400px;
-    
+    font-size: 20px;
+  }
+  .summary_table{
+
+    border:5px solid rgba(0,0,0,0.4);
+
   }
