@@ -9,19 +9,23 @@
 
 
     <table class="summary_table">
-     
+
       <tr>
 
-        {% for item in all_post %}  <!-- for loop to iterate through all summary post -->
-        {% if loop.index <= 3 %} <td class="summary_post">
+        {% for item in all_post %}
+        <!-- for loop to iterate through all summary post -->
+        {% if loop.index <= 3 %} 
+        <td class="summary_post">
 
           <h2 class="h2_summary_titles"> {{ item.title }}</h2>
-          <p>{{ item.summary }}</p>
-          <p>{{ item.date_created.date() }}</p>
+
+          <p class="summary_color"> {{ item.summary }}</p>
+          <p class="summary_color">{{ item.date_created.date() }}</p>
           <br>
           <a href="/delete/{{item.id}}">Delete</a>
           <br>
           <a href="/update/{{item.id}}">Update</a>
+
           </td>
 
           {% endif %}
@@ -37,18 +41,15 @@
         <td class="summary_post">
 
           <h2 class="h2_summary_titles"> {{ item.title }}</h2>
-          <p>{{ item.summary }}</p>
-          <p>{{ item.date_created.date() }}</p>
+          <p class="summary_color"> {{ item.summary }}</p>
+          <p class="summary_color">{{ item.date_created.date() }}</p>
           <br>
           <a href="/delete/{{item.id}}">Delete</a>
           <br>
           <a href="/update/{{item.id}}">Update</a>
         </td>
 
-
-
         {% endif %}
-
 
         {% endfor %}
       </tr>
