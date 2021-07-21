@@ -6,28 +6,7 @@
 <div style="padding: 35px">
   {% if all_post|length < 1 %} <h4 class="noPost">There are NO Post. Add your Skills!</h4>
     {% else %}
-    <!-- <table>
-      <tr>
 
-        {% for item in all_post %}
-      <tr>
-        <td>{{ item.title }}</td>
-      </tr>
-      <tr>
-        <td>{{ item.summary }}</td>
-      </tr>
-      <tr>
-        <td>{{ item.date_created.date() }}
-          <br>
-          <a href="/delete/{{item.id}}">Delete</a>
-          <br>
-          <a href="/update/{{item.id}}">Update</a>
-        </td>
-      </tr>
-
-      {% endfor %}
-      </tr>
-    </table> -->
 
     <table class="summary_table">
      
