@@ -5,14 +5,14 @@ from datetime import datetime
 
 app=Flask(__name__)
 #config database location using SQLITE relative path
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///SummaryDB.db'
 db=SQLAlchemy(app) #initialize database
 
 #create a model
-class Todo(db.Model): # Todo name of DB
+class SummaryDB(db.Model): # SummaryDB name of DB
     # creates ID for each entry
     id= db.Column(db.Integer,primary_key=True)
-    content= db.Column(db.String(150),nullable=False)
+    title= db.Column(db.String(150),nullable=False)
     summary= db.Column(db.String(200))
     # set time automatically
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
@@ -29,7 +29,7 @@ def index():
         #request is equal to "content_title" from index.html input tag
         compt_title = request.form["compt_title"]
         # All data added to DB needs to be in a single call, like so:
-        new_post_title_summary = Todo(content=compt_title,summary=compt_summary)
+        new_post_title_summary = SummaryDB(title=compt_title,summary=compt_summary)
         
         
 
@@ -44,12 +44,12 @@ def index():
            
     else:
         # sort DB by order created and return items
-        all_post= Todo.query.order_by(Todo.date_created).all()
+        all_post= SummaryDB.query.order_by(SummaryDB.date_created).all()
         return render_template('index.html', all_post=all_post)
     
 @app.route('/delete/<int:id>')
 def delete(id):
-    task_to_delete= Todo.query.get_or_404(id)
+    task_to_delete= SummaryDB.query.get_or_404(id)
     
     try:
         db.session.delete(task_to_delete)
@@ -61,10 +61,10 @@ def delete(id):
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
-    task = Todo.query.get_or_404(id)
+    task = SummaryDB.query.get_or_404(id)
 
     if request.method == 'POST':
-        task.content = request.form['content']
+        task.title = request.form['title']
 
         try:
             db.session.commit()

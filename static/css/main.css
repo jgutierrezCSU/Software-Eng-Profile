@@ -10,24 +10,6 @@ body, html {
     color: honeydew;
 }
 
-table, td, th {
-    border: 1px solid #aaa;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th {
-    height: 30px;
-}
-
-td {
-    text-align: center;
-    padding: 5px;
-}
-
 .form {
     margin-top: 20px;
 }
@@ -87,11 +69,12 @@ td {
   /* END Header*/
 
   .noPost {
-    text-align: left;
+    text-align: center;
     line-height: 5em;
     font-family: Cyber;
-    font-size: 20px;
-  }
+    font-size: 30px;
+    color: #df6519;
+   }
 
   .summary_post {
     text-align:center;
@@ -100,8 +83,14 @@ td {
     min-width:400px;
     font-size: 20px;
   }
-  .summary_table{
+.h2_summary_titles{
+  text-align:center;
+  color: #df6519;
+ 
+}
 
-    border:5px solid rgba(0,0,0,0.4);
+  /* removes table borders for summary post */
+  .summary_table{
+    border:0px solid rgba(0,0,0,0.4);
 
   }
